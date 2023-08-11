@@ -6,7 +6,7 @@ COPY ./sleep.sh .
 
 
 #commands
-RUN apt update
+
 
 #port
 EXPOSE 80
