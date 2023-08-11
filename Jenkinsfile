@@ -50,7 +50,10 @@ pipeline {
                 echo "Start check the docker health"
                 echo "Doing Somthing..."
                 sh 'docker ps -a'
-                sh 'docker ps -a --filter "name=iftach_alpine_doc"'
+                sh '''
+                doc=`docker ps -a --filter "name=iftach_alpine_doc"`
+                echo $doc
+                '''
                 echo "End stage of deploy"
             }
         }
