@@ -11,7 +11,7 @@ RUN chmod +x /app/sleep.sh
 EXPOSE 8000
 
 #bash
-CMD ["sh","sleep.sh"]
+CMD CMD ["/bin/sh", "-c", "sleep.sh"]
 
 
 # Define the entrypoint to run the script
