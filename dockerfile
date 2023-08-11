@@ -1,8 +1,9 @@
 #image
 FROM alpine
 
-COPY .sleep.sh ./app/sleep.sh
 WORKDIR /app
+COPY ./sleep.sh .
+
 
 #commands
 RUN apt update
