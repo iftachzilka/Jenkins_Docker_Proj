@@ -3,9 +3,10 @@ pipeline {
     
     agent any
     environment {
-        PROJECT_NAME = "Neptun"
+        PROJECT_NAME = "Finel_Project_Jenkins"
+        PROJECT_DESCRIPT = "=== build docker image push it to git and run this docker with jenkins ==="
         OWNER_NAME = "Iftach"
-        CON_NAME = "alpine_doc"
+        CON_NAME = "iftach_alpine_doc"
     }
     stages {
         stage('1-Starting') {
