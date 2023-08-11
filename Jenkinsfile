@@ -55,9 +55,9 @@ pipeline {
                 echo $doc
                 container_name="my-container"
                 if docker ps -a --filter "name=${container_name}" | grep -q "${container_name}"; then
-                    echo "Container ${container_name} exists."
+                    echo "Container ${CON_NAME} exists."
                 else
-                    echo "Container ${container_name} does not exist."
+                    echo "Container ${CON_NAME} does not exist."
                 fi
                 '''
                 echo "End stage of deploy"
