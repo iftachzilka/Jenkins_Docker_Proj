@@ -53,8 +53,7 @@ pipeline {
                 sh '''
                 doc=`docker ps -a --filter "name=iftach_alpine_doc"`
                 echo $doc
-                container_name="my-container"
-                if docker ps -a --filter "name=${container_name}" | grep -q "${container_name}"; then
+                if docker ps -a --filter "name=${CON_NAME}" | grep -q "${CON_NAME}"; then
                     echo "Container ${CON_NAME} exists."
                 else
                     echo "Container ${CON_NAME} does not exist."
