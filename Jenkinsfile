@@ -58,7 +58,7 @@ pipeline {
                     echo "Container ${CON_NAME} exists."
                     docker stop ${CON_NAME}
                     rmm=`docker rm ${CON_NAME}`
-                    echo 'Container "$rmm" are deleted'
+                    echo "Container `'$rmm`' are deleted"
                 else
                     echo "Container ${CON_NAME} does not exist."
                 fi
