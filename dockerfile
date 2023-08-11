@@ -10,9 +10,10 @@ RUN chmod +x /app/sleep.sh
 #port
 EXPOSE 8000
 
-
+#bash
+CMD ["bash","sleep.sh"]
 
 
 # Define the entrypoint to run the script
-ENTRYPOINT ["/app/sleep.sh"]
+#ENTRYPOINT ["/app/sleep.sh"]
 
