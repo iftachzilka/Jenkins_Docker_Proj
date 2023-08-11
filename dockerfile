@@ -1,5 +1,6 @@
 #image
-FROM alpine:latest
+#FROM alpine:latest
+FROM nginx:latest
 
 WORKDIR /app
 COPY sleep.sh .
