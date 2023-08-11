@@ -5,7 +5,7 @@ pipeline {
     environment {
         PROJECT_NAME = "Finel_Project_Jenkins"
         PROJECT_DESCRIPT = "=== build docker image push it to git and run this docker with jenkins ==="
-        OWNER_NAME = "Iftach"
+        OWNER_NAME = "Iftach Zilca"
         CON_NAME = "iftach_alpine_doc"
     }
     stages {
@@ -27,12 +27,12 @@ pipeline {
         }
         stage('3-Test all env variables') {
             steps {
-                echo "Start of stage test"
+                echo "Start of stage env variables"
                 echo "Testing...."
                 echo "The project name -> ${PROJECT_NAME}"
                 echo "The Owner is -> ${OWNER_NAME}"
                 echo "The project description -> ${PROJECT_DESCRIPT}"
-                echo "End of stage test"
+                echo "End of stage test..."
             }
         }
         stage('4-Deploy') {
@@ -42,7 +42,7 @@ pipeline {
                 echo "Still doing..."
                 sh 'ls -la'
                 sh "docker run -d -p 8000:8000 --name ${CON_NAME} alpine-docker"
-                echo "End stage of deploy"
+                echo "End stage of deploy..."
             }
         }
          stage('5-Checks') {
@@ -63,7 +63,7 @@ pipeline {
                     echo "Container '${CON_NAME}' does not exist."
                 fi
                 '''
-                echo "End stage of deploy"
+                echo "End stage of checks..."
             }
         }
     }
