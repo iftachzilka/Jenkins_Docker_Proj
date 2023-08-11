@@ -1,18 +1,16 @@
 #image
 FROM alpine:latest
 
-WORKDIR /usr/local/bin/
-COPY ./sleep.sh .
+WORKDIR /app
+COPY sleep.sh .
 
 #commands
-RUN chmod +x /usr/local/bin/sleep.sh
+RUN chmod +x /app/sleep.sh
 
 #port
-EXPOSE 80
+EXPOSE 8000
 
 #bash
 CMD bash "sleep.sh"
 
 
-# Define the entrypoint to run the script
-#ENTRYPOINT ["/usr/local/bin/myscript.sh"]
