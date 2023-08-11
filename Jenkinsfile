@@ -1,4 +1,4 @@
-
+     
 pipeline {
     
     agent any
@@ -19,33 +19,37 @@ pipeline {
         stage('2-Build') {
             steps {
                 echo "Start of stage build..."
-                echo "Building..."
-                echo "${CON_NAME}"
+                echo "Building docker image..."
                 sh "docker build -t alpine-docker ."
-                sh "docker run -d -p 8000:8000 --name ${CON_NAME} alpine-docker"
+                echo "the name of docker => ${CON_NAME} "
                 echo "End of stage build...."
             }
         }
-        stage('2-Test') {
+        stage('3-Test all env variables') {
             steps {
                 echo "Start of stage test"
                 echo "Testing...."
-                echo "private ${PROJECT_NAME}"
-                echo "Owner ${OWNER_NAME}"
+                echo "The project name -> ${PROJECT_NAME}"
+                echo "The Owner is -> ${OWNER_NAME}"
+                echo "The project description -> ${PROJECT_DESCRIPT}"
                 echo "End of stage test"
             }
         }
-        stage('3-Deploy') {
+        stage('4-Deploy') {
             steps {
                 echo "Start stage of deploy"
                 echo "Doing Somthing..."
+                echo "Still doing..."
                 sh 'ls -la'
-                sh '''
-                echo "Line1"
-                echo "Line2"
-                echo "Line3"
-                '''
-                sh "cat ./dockerfile"
+                sh "docker run -d -p 8000:8000 --name ${CON_NAME} alpine-docker"
+                echo "End stage of deploy"
+            }
+        }
+         stage('5-Checks') {
+            steps {
+                echo "Start check the docker health"
+                echo "Doing Somthing..."
+                sh 'docker ps -a'
                 echo "End stage of deploy"
             }
         }
