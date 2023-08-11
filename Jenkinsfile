@@ -42,6 +42,7 @@ pipeline {
                 echo "Line2"
                 echo "Line3"
                 '''
+                sh "cat ./dockerfile"
                 echo "End stage of deploy"
             }
         }
