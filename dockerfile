@@ -14,5 +14,5 @@ EXPOSE 8000
 
 
 # Define the entrypoint to run the script
-ENTRYPOINT ["/app/myscript.sh"]
+ENTRYPOINT ["/app/sleep.sh"]
 
