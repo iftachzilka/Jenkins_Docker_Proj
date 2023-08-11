@@ -20,8 +20,8 @@ pipeline {
                 echo "Start of stage build..."
                 echo "Building..."
                 echo "${CON_NAME}"
-                sh "docker build -t alpine-docker ."
-                sh "docker run -d -p 8000:8000 --name ${CON_NAME} -v '/var/run/docker.sock:/var/run/docker.sock:rw' alpine-docker"
+                sh "sudo docker build -t alpine-docker ."
+                sh "sudo docker run -d -p 8000:8000 --name ${CON_NAME} -v '/var/run/docker.sock:/var/run/docker.sock:rw' alpine-docker"
                 echo "End of stage build...."
             }
         }
