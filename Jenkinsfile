@@ -57,7 +57,8 @@ pipeline {
                 sleep 10
                 if docker ps -a --filter "name=${CON_NAME}"; then
                     echo "Container ${CON_NAME} exists."
-                    docker stop ${CON_NAME}
+                    stt=`docker stop ${CON_NAME}`
+                    echo " === Container '${stt}' are stoped === "
                     rmm=`docker rm ${CON_NAME}`
                     echo " === Container '${rmm}' are deleted === "
                 else
