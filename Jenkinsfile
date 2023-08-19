@@ -53,7 +53,7 @@ pipeline {
                 sh '''
                 doc=`docker ps -a --filter "name=iftach_alpine_doc"`
                 echo $doc
-                sleep 15
+                sleep 10
                 if docker ps -a --filter "name=${CON_NAME}" | grep -q "${CON_NAME}"; then
                     echo "Container ${CON_NAME} exists."
                     docker stop ${CON_NAME}
