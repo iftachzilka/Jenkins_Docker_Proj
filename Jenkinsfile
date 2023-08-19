@@ -7,6 +7,7 @@ pipeline {
         PROJECT_DESCRIPT = "=== build docker image push it to git and run this docker with jenkins ==="
         OWNER_NAME = "Iftach Zilca"
         CON_NAME = "iftach_alpine_doc"
+        IMAGE_NAME = "alpine-docker"
     }
     stages {
         stage('1-Starting') {
@@ -20,7 +21,7 @@ pipeline {
             steps {
                 echo "Start of stage build..."
                 echo "Building docker image..."
-                sh "docker build -t alpine-docker ."
+                sh "docker build -t ${IMAGE_NAME} ."
                 echo "the name of docker => ${CON_NAME} "
                 echo "End of stage build...."
             }
@@ -41,7 +42,7 @@ pipeline {
                 echo "Doing Somthing..."
                 echo "Still doing..."
                 sh 'ls -la'
-                sh "docker run -d -p 8000:8000 --name ${CON_NAME} alpine-docker"
+                sh "docker run -d -p 8000:8000 --name ${CON_NAME} ${IMAGE_NAME}"
                 echo "End stage of deploy..."
             }
         }
@@ -54,7 +55,7 @@ pipeline {
                 doc=`docker ps -a --filter "name=iftach_alpine_doc"`
                 echo $doc
                 sleep 10
-                if docker ps -a --filter "name=${CON_NAME}" | grep -q "${CON_NAME}"; then
+                if docker ps -a --filter "name=${CON_NAME}"; then
                     echo "Container ${CON_NAME} exists."
                     docker stop ${CON_NAME}
                     rmm=`docker rm ${CON_NAME}`
