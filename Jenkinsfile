@@ -41,7 +41,6 @@ pipeline {
                 echo "Start stage of deploy"
                 echo "Doing Somthing..."
                 echo "Still doing..."
-                sh 'ls -la'
                 sh "docker run -d -p 8000:8000 --name ${CON_NAME} ${IMAGE_NAME}"
                 echo "End stage of deploy..."
             }
