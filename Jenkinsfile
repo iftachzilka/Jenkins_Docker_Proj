@@ -50,7 +50,6 @@ pipeline {
             steps {
                 echo "Start check the docker health"
                 echo "Doing Somthing..."
-                sh 'docker ps -a'
                 sh '''
                 doc=`docker ps -a --filter "name=iftach_alpine_doc"`
                 echo $doc
