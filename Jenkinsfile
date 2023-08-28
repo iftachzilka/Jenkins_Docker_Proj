@@ -33,6 +33,17 @@ pipeline {
                 echo "The project name -> ${PROJECT_NAME}"
                 echo "The Owner is -> ${OWNER_NAME}"
                 echo "The project description -> ${PROJECT_DESCRIPT}"
+                echo
+                echo
+                echo " ===> Checking if theis docker is exists brfore running... <=== "
+                sh '''
+                if docker ps -a --filter "name=${CON_NAME}"; then
+                    echo "Container ${CON_NAME} exists."
+                    stt=`docker stop ${CON_NAME}`
+                    echo " === Container '${stt}' are stoped === "
+                    rmm=`docker rm ${CON_NAME}`
+                fi
+                '''
                 echo "End of stage test..."
             }
         }
